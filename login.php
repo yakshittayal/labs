@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the Session
+session_start(); 
 
 require_once 'includes/header.php';
 require_once './db/conn.php';
@@ -17,14 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_close($stmt);
 
     if ($dbpassword && password_verify($password, $dbpassword)) {
-        // Password is correct, set session variables
         $_SESSION['email'] = $dbemail;
-
-        // Redirect to the answers
         header("Location: actualsolutions.php");
-        exit(); //stops after redirection
+        exit(); 
     } else {
-        echo "Bad password";
+        echo '<div style="text-align: center; color: white; font-size: 50px; text-decoration: underline; margin-top: 10%;">wrong password, try Again</div>';
+        echo '<div style="text-align: center; color: white; font-size: 20px; margin-top: 10px;">You will be redirected in 4 seconds...</div>';
+        echo '<script>
+                setTimeout(function() {
+                    window.location.href = "loginform.php";
+                }, 4000);
+              </script>';
     }
 }
 ?>

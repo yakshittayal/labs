@@ -1,6 +1,24 @@
 <?php
-$title = "AlgomaU";
-require_once 'includes/header.php'?>
+$title = "Signup";
+require_once 'includes/header.php' ?>
+<style>
+    .form-label {
+        color: white;
+        font-size: 19px;
+        font-weight: bold;
+        text-decoration:underline;       
+    }
+    body {
+        backdrop-filter: blur(10px);
+    }
+    .container{
+        
+    height: 450px; 
+    overflow-y: scroll; 
+
+    }
+</style>
+
 <body>
     <div class="container">
         <div class="row justify-content-center">
